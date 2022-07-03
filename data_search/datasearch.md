@@ -11,3 +11,5 @@
 | https://prismauserregistration.asi.it/  |   | PRISMA request made | - |
 | https://aviris.jpl.nasa.gov/dataportal/  | f171214t01p00r06  | Cuprite | - |
 | https://aviris.jpl.nasa.gov/dataportal/  | f180917t01p00r05 f171214t01p00r06 f180918t01p00r07 f180918t01p00r08  | Clayton Valley | [Lithium Project 43-101](https://cypressdevelopmentcorp.com/site/assets/files/3934/2020-05-19-clayton-pre-feasibility.pdf) |
+| https://geoscience.data.qld.gov.au/  | various  | HyMap Airborne |  |
+

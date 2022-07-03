@@ -4,14 +4,12 @@ from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-import wx
-spectral.settings.WX_GL_DEPTH_SIZE = 16
 import os
 from scipy.spatial.distance import directed_hausdorff
 import similaritymeasures
 
 # directory containing spectral data
-folder = "C:/GIS/University of Waterloo/"
+folder = "D:/Datasets/Terra_Cuprite/University of Waterloo/"
 
 img = envi.open(folder + '20210821175814003001_mosaic_resample.hdr',
                 folder + '20210821175814003001_mosaic_resample.img')
@@ -25,10 +23,10 @@ img.bands.centers[-10:]==np.nan
 md = img.metadata
 print('Metadata Contents:')
 for item in md:
-    print('\t',item)
+    print(item)
 
-print('description:',md['description'])
-print('map info:',md['map info'])
+print('description:', md['description'])
+print('map info:', md['map info'])
 
 #print(md['wavelength'])
 print('Number of Bands:',len(md['wavelength']))
@@ -47,7 +45,7 @@ print('Last 3 Band Center Wavelengths:',img.bands.centers[-3:])
 
 #print(lib.names[:5])
 
-bands = np.genfromtxt('C:/GIS/University of Waterloo/bands.csv', delimiter=',')
+bands = np.genfromtxt('D:/Datasets/Terra_Cuprite/University of Waterloo/bands.csv', delimiter=',')
 
 import os
 
@@ -63,17 +61,6 @@ pixel = img[
 
 pixel_squeezed = np.squeeze(pixel)
 
-dumimage =img[
-            0:,
-            0:,
-            0:0]
-
-plt.imshow(dumimage, interpolation='nearest')
-plt.show()
-
-
-print(type(dumimage))
-
 Q = np.array([bands,pixel_squeezed]).T
 
 # ecostress data
@@ -88,13 +75,13 @@ for file in os.listdir(directory):
         y = []  
         with open("ecospeclib/"+filename) as f:
             data = f.read()
-            data = data.split('\n')
+            data = data.split('/n')
             name = data[0].split(':')
             name = name[1]
             print(name)
             data = data[21:]
             for point in data:
-                point = point.split('\t')
+                point = point.split('/t')
                 if len(point)>1:
                     xi = float(point[0].strip())
                     yi = float(point[1].strip())
@@ -127,7 +114,7 @@ plt.show()
 plt.clf() """
         
 plt.plot(bands, pixel_squeezed)
-plt.title('Spectral Footprint\n(Pixel {},{})'.format(
+plt.title('Spectral Footprint/n(Pixel {},{})'.format(
         pixel_x, pixel_y))
 plt.xlabel('Wavelength')
 plt.ylabel('Reflectance')
@@ -157,7 +144,7 @@ for y in range(0, 1083):
         if not np.all(pixel[0][0]==0):
             pixel_squeezed = np.squeeze(pixel)
             plt.plot(bands, pixel_squeezed)
-            plt.title('Spectral Footprint\n(Pixel {},{})'.format(
+            plt.title('Spectral Footprint/n(Pixel {},{})'.format(
                 pixel_x, pixel_y))
             plt.xlabel('Wavelength')
             plt.ylabel('Reflectance')

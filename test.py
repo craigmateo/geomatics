@@ -1,6 +1,6 @@
 import codecs
 
-folder = "C:/GIS/University of Waterloo/"
+folder = "D:/Datasets/Terra_Cuprite/University of Waterloo/"
 filename = folder+'20210821175814003001_00000000_resample.img' 
 
 # Example: convert bytes to a String, using the built-in decode() method for the bytes class (from https://stackabuse.com/convert-bytes-to-string-in-python/)
